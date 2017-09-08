@@ -1,13 +1,7 @@
 ---
-- hosts : Node2
+- hosts : WIN03.ansible.com
   tasks :
-   - name : install nginx
-     yum : pkg=nginx state=installed
-
-     notify:
-       - start nginx
-
-  handlers :
-  - name : start nginx
-    service : name=nginx state=started
-
+        - name: Download earthrise.jpg to specified path
+          win_get_url:
+            url: https://s3.ap-south-1.amazonaws.com/mysolaris/SolarWinds-Agent.msi
+            dest: C:\SolarWinds-Agent.msi
