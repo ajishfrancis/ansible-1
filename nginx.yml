@@ -1,7 +1,14 @@
 ---
 - hosts : WIN03.ansible.com
   tasks :
-        - name: Download earthrise.jpg to specified path
+        - name: Download solar wind agent to specified path
           win_get_url:
             url: https://s3.ap-south-1.amazonaws.com/mysolaris/SolarWinds-Agent.msi
             dest: C:\SolarWinds-Agent.msi
+        - name: Download powershell script to specified path
+          win_get_url:
+            url: https://s3.ap-south-1.amazonaws.com/mysolaris/solaris-install.ps1
+            dest: C:\solaris-install.ps1
+        - name: install solarwind agent
+          win_shell: C:\solaris-install.ps1
+           
